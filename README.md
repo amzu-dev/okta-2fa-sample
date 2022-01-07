@@ -9,7 +9,8 @@
 This project uses the following additional dependencies which are not defined in the Okta Example:
 * core-js
 * vue-router
-once you have registered (free 30 day trial) with Okta, you can go to the file src/okta/index.js and replace the value MY_DOMAIN with the domain assigned to you and CLIENT_ID with the clientId of the App you have registered. while registring with Okta.
+
+Once you have registered (free 30 day trial) with Okta, you can go to the file src/okta/index.js and replace the value MY_DOMAIN with the domain assigned to you and CLIENT_ID with the clientId of the App you have registered. while registring with Okta.
 
 ## Project setup
 ```
