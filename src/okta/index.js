@@ -1,7 +1,7 @@
 import OktaSignIn from '@okta/okta-signin-widget'
 import { OktaAuth } from '@okta/okta-auth-js'
-const MY_DOMAIN= 'amzu.okta.com';
-const MY_CLIENT_ID= '0oab78yrppTBMYhEn696'
+const MY_DOMAIN= '';
+const MY_CLIENT_ID= ''
 const oktaSignIn = new OktaSignIn({
   baseUrl: `https://${MY_DOMAIN}`,
   clientId: MY_CLIENT_ID,
