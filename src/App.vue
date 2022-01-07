@@ -1,26 +1,52 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <nav>
+      <div>
+        <router-link to="/">
+          Okta-Vue Sample Project
+        </router-link>
+        <router-link to="/login" v-if="!authenticated">
+          Login
+        </router-link>
+        <router-link to="/profile" v-if="authenticated" >
+          Profile
+        </router-link>
+        <a v-if="authenticated" v-on:click="logout()">
+          Logout
+        </a>
+      </div>
+    </nav>
+    <div id="content">
+      <router-view/>
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  name: 'app',
+  data: function () {
+    return { authenticated: false }
+  },
+  async created () {
+    await this.isAuthenticated()
+    this.$auth.authStateManager.subscribe(this.isAuthenticated)
+  },
+  watch: {
+    // Everytime the route changes, check for auth status
+    '$route': 'isAuthenticated'
+  },
+  methods: {
+    async isAuthenticated () {
+      this.authenticated = await this.$auth.isAuthenticated()
+    },
+    async logout () {
+      await this.$auth.signOut()
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+nav div a { margin-right: 10px }
 </style>

@@ -1,4 +1,15 @@
 # okta-app
+## Pre-requirement
+
+* Okta account
+* App created/registered in Okta
+* Users available in Okta to login
+* The App configured with the correct Rules for challenging the login with 2FA
+
+This project uses the following additional dependencies which are not defined in the Okta Example:
+* core-js
+* vue-router
+once you have registered (free 30 day trial) with Okta, you can go to the file src/okta/index.js and replace the value MY_DOMAIN with the domain assigned to you and CLIENT_ID with the clientId of the App you have registered. while registring with Okta.
 
 ## Project setup
 ```
